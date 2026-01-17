@@ -1,7 +1,3 @@
-Here’s a solid, concise **README** for your **MPI-Parallel Trapezoidal Integral** project — following the same methodology as your previous ones:
-
----
-
 # MPI Parallel Trapezoidal Integral 📈
 
 **Compute definite integrals faster** by dividing the workload across MPI processes using the **trapezoidal rule**. This project parallelizes numerical integration using the **Message Passing Interface (MPI)** in C.
