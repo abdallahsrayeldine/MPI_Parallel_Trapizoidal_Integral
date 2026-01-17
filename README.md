@@ -2,11 +2,15 @@
 
 **Compute definite integrals faster** by dividing the workload across MPI processes using the **trapezoidal rule**. This project parallelizes numerical integration using the **Message Passing Interface (MPI)** in C.
 
-The trapezoidal rule approximates:
-[
-\int_a^b f(x),dx \approx h \left[\frac{f(a)+f(b)}{2} + \sum_{k=1}^{n-1} f(a + k h)\right]
-]
-where (h = (b-a)/n). Parallelism divides this interval across multiple MPI ranks, computes partial sums locally, and reduces them into the final result. ([BrainKart][1])
+The trapezoidal rule approximates a definite integral as:
+
+∫[a,b] f(x) dx ≈ h * ( (f(a) + f(b)) / 2 + Σ f(a + k*h) ),  k = 1..n-1
+
+where: h = (b - a) / n
+
+In this project, the interval [a, b] is split across multiple MPI ranks.
+Each process computes a local partial sum, and all partial results are
+reduced into the final integral value using MPI collective operations. ([BrainKart][1])
 
 ---
 
